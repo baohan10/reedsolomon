@@ -1,5 +1,5 @@
 # Reed-Solomon
-[![Go Reference](https://pkg.go.dev/badge/github.com/klauspost/reedsolomon.svg)](https://pkg.go.dev/github.com/klauspost/reedsolomon) [![Go](https://github.com/klauspost/reedsolomon/actions/workflows/go.yml/badge.svg)](https://github.com/klauspost/reedsolomon/actions/workflows/go.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/baohan10/reedsolomon.svg)](https://pkg.go.dev/github.com/baohan10/reedsolomon) [![Go](https://github.com/baohan10/reedsolomon/actions/workflows/go.yml/badge.svg)](https://github.com/baohan10/reedsolomon/actions/workflows/go.yml)
 
 Reed-Solomon Erasure Coding in Go, with speeds exceeding 1GB/s/cpu core implemented in pure Go.
 
@@ -11,14 +11,14 @@ For an introduction on erasure coding, see the post on the [Backblaze blog](http
 For encoding high shard counts (>256) a Leopard implementation is used.
 For most platforms this performs close to the original Leopard implementation in terms of speed. 
 
-Package home: https://github.com/klauspost/reedsolomon
+Package home: https://github.com/baohan10/reedsolomon
 
-Godoc: https://pkg.go.dev/github.com/klauspost/reedsolomon
+Godoc: https://pkg.go.dev/github.com/baohan10/reedsolomon
 
 # Installation
 To get the package use the standard:
 ```bash
-go get -u github.com/klauspost/reedsolomon
+go get -u github.com/baohan10/reedsolomon
 ```
 
 Using Go modules is recommended.
@@ -27,10 +27,10 @@ Using Go modules is recommended.
 
 ## 2022
 
-* [GFNI](https://github.com/klauspost/reedsolomon/pull/224) support for amd64, for up to 3x faster processing.
-* [Leopard GF8](https://github.com/klauspost/reedsolomon#leopard-gf8) mode added, for faster processing of medium shard counts.
-* [Leopard GF16](https://github.com/klauspost/reedsolomon#leopard-compatible-gf16) mode added, for up to 65536 shards. 
-* [WithJerasureMatrix](https://pkg.go.dev/github.com/klauspost/reedsolomon?tab=doc#WithJerasureMatrix) allows constructing a [Jerasure](https://github.com/tsuraan/Jerasure) compatible matrix.
+* [GFNI](https://github.com/baohan10/reedsolomon/pull/224) support for amd64, for up to 3x faster processing.
+* [Leopard GF8](https://github.com/baohan10/reedsolomon#leopard-gf8) mode added, for faster processing of medium shard counts.
+* [Leopard GF16](https://github.com/baohan10/reedsolomon#leopard-compatible-gf16) mode added, for up to 65536 shards. 
+* [WithJerasureMatrix](https://pkg.go.dev/github.com/baohan10/reedsolomon?tab=doc#WithJerasureMatrix) allows constructing a [Jerasure](https://github.com/tsuraan/Jerasure) compatible matrix.
 
 ## 2021
 
@@ -48,7 +48,7 @@ Using Go modules is recommended.
 ## May 2020
 
 * ARM64 optimizations, up to 2.5x faster.
-* Added [WithFastOneParityMatrix](https://pkg.go.dev/github.com/klauspost/reedsolomon?tab=doc#WithFastOneParityMatrix) for faster operation with 1 parity shard.
+* Added [WithFastOneParityMatrix](https://pkg.go.dev/github.com/baohan10/reedsolomon?tab=doc#WithFastOneParityMatrix) for faster operation with 1 parity shard.
 * Much better performance when using a limited number of goroutines.
 * AVX512 is now using multiple cores.
 * Stream processing overhaul, big speedups in most cases.
@@ -61,7 +61,7 @@ The pure Go implementation is about 30% faster. Minor tweaks to assembler implem
 ## February 8, 2019
 
 AVX512 accelerated version added for Intel Skylake CPUs. This can give up to a 4x speed improvement as compared to AVX2.
-See [here](https://github.com/klauspost/reedsolomon#performance-on-avx512) for more details.
+See [here](https://github.com/baohan10/reedsolomon#performance-on-avx512) for more details.
 
 ## December 18, 2018
 
@@ -69,15 +69,15 @@ Assembly code for ppc64le has been contributed, this boosts performance by about
 
 ## November 18, 2017
 
-Added [WithAutoGoroutines](https://godoc.org/github.com/klauspost/reedsolomon#WithAutoGoroutines) which will attempt 
+Added [WithAutoGoroutines](https://godoc.org/github.com/baohan10/reedsolomon#WithAutoGoroutines) which will attempt 
 to calculate the optimal number of goroutines to use based on your expected shard size and detected CPU.
 
 ## October 1, 2017
 
-* [Cauchy Matrix](https://godoc.org/github.com/klauspost/reedsolomon#WithCauchyMatrix) is now an option. 
+* [Cauchy Matrix](https://godoc.org/github.com/baohan10/reedsolomon#WithCauchyMatrix) is now an option. 
 Thanks to [templexxx](https://github.com/templexxx) for the basis of this.
 
-* Default maximum number of [goroutines](https://godoc.org/github.com/klauspost/reedsolomon#WithMaxGoroutines) 
+* Default maximum number of [goroutines](https://godoc.org/github.com/baohan10/reedsolomon#WithMaxGoroutines) 
 has been increased for better multi-core scaling.
 
 * After several requests the Reconstruct and ReconstructData now slices of zero length but sufficient capacity to 
@@ -85,7 +85,7 @@ be used instead of allocating new memory.
 
 ## August 26, 2017
 
-*  The [`Encoder()`](https://godoc.org/github.com/klauspost/reedsolomon#Encoder) now contains an `Update` 
+*  The [`Encoder()`](https://godoc.org/github.com/baohan10/reedsolomon#Encoder) now contains an `Update` 
 function contributed by [chenzhongtao](https://github.com/chenzhongtao).
 
 * [Frank Wessels](https://github.com/fwessels) kindly contributed ARM 64 bit assembly, 
@@ -93,7 +93,7 @@ which gives a huge performance boost on this platform.
 
 ## July 20, 2017
 
-`ReconstructData` added to [`Encoder`](https://godoc.org/github.com/klauspost/reedsolomon#Encoder) interface. 
+`ReconstructData` added to [`Encoder`](https://godoc.org/github.com/baohan10/reedsolomon#Encoder) interface. 
 This can cause compatibility issues if you implement your own Encoder. A simple workaround can be added:
 
 ```Go
@@ -103,7 +103,7 @@ func (e *YourEnc) ReconstructData(shards [][]byte) error {
 ```
 
 You can of course also do your own implementation. 
-The [`StreamEncoder`](https://godoc.org/github.com/klauspost/reedsolomon#StreamEncoder) 
+The [`StreamEncoder`](https://godoc.org/github.com/baohan10/reedsolomon#StreamEncoder) 
 handles this without modifying the interface. 
 This is a good lesson on why returning interfaces is not a good design.
 
@@ -126,7 +126,7 @@ To create an encoder with 10 data shards (where your data goes) and 3 parity sha
 This encoder will work for all parity sets with this distribution of data and parity shards. 
 
 If you will primarily be using it with one shard size it is recommended to use 
-[`WithAutoGoroutines(shardSize)`](https://pkg.go.dev/github.com/klauspost/reedsolomon?tab=doc#WithAutoGoroutines)
+[`WithAutoGoroutines(shardSize)`](https://pkg.go.dev/github.com/baohan10/reedsolomon?tab=doc#WithAutoGoroutines)
 as an additional parameter. This will attempt to calculate the optimal number of goroutines to use for the best speed.
 It is not required that all shards are this size. 
 
@@ -216,7 +216,7 @@ So to sum up reconstruction:
 * Invalid shards should be set to nil.
 
 For complete examples of an encoder and decoder see the 
-[examples folder](https://github.com/klauspost/reedsolomon/tree/master/examples).
+[examples folder](https://github.com/baohan10/reedsolomon/tree/master/examples).
 
 # Splitting/Joining Data
 
@@ -356,27 +356,27 @@ This doesn't give the same flexibility of a higher number of data shards, but it
 
 There has been added support for a streaming API, to help perform fully streaming operations, 
 which enables you to do the same operations, but on streams. 
-To use the stream API, use [`NewStream`](https://godoc.org/github.com/klauspost/reedsolomon#NewStream) function 
+To use the stream API, use [`NewStream`](https://godoc.org/github.com/baohan10/reedsolomon#NewStream) function 
 to create the encoding/decoding interfaces. 
 
-You can use [`WithConcurrentStreams`](https://godoc.org/github.com/klauspost/reedsolomon#WithConcurrentStreams) 
+You can use [`WithConcurrentStreams`](https://godoc.org/github.com/baohan10/reedsolomon#WithConcurrentStreams) 
 to ready an interface that reads/writes concurrently from the streams.
 
 You can specify the size of each operation using 
-[`WithStreamBlockSize`](https://godoc.org/github.com/klauspost/reedsolomon#WithStreamBlockSize).
+[`WithStreamBlockSize`](https://godoc.org/github.com/baohan10/reedsolomon#WithStreamBlockSize).
 This will set the size of each read/write operation.
 
 Input is delivered as `[]io.Reader`, output as `[]io.Writer`, and functionality corresponds to the in-memory API. 
 Each stream must supply the same amount of data, similar to how each slice must be similar size with the in-memory API. 
 If an error occurs in relation to a stream, 
-a [`StreamReadError`](https://godoc.org/github.com/klauspost/reedsolomon#StreamReadError) 
-or [`StreamWriteError`](https://godoc.org/github.com/klauspost/reedsolomon#StreamWriteError) 
+a [`StreamReadError`](https://godoc.org/github.com/baohan10/reedsolomon#StreamReadError) 
+or [`StreamWriteError`](https://godoc.org/github.com/baohan10/reedsolomon#StreamWriteError) 
 will help you determine which stream was the offender.
 
 There is no buffering or timeouts/retry specified. If you want to add that, you need to add it to the Reader/Writer.
 
 For complete examples of a streaming encoder and decoder see the 
-[examples folder](https://github.com/klauspost/reedsolomon/tree/master/examples).
+[examples folder](https://github.com/baohan10/reedsolomon/tree/master/examples).
 
 GF16 (more than 256 shards) is not supported by the streaming interface. 
 
